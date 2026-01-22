@@ -5,12 +5,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --card-bg: #f9f9f9;
+  --card-shadow: rgba(0, 0, 0, 0.15);
+  --input-bg: #ffffff;
+  --button-bg: #3b82f6;
+  --button-hover-bg: #2563eb;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #15102a;
     --foreground: #ededed;
+    --card-bg: #1f1b2e;
+    --card-shadow: rgba(0, 0, 0, 0.5);
+    --input-bg: #2c2544;
+    --button-bg: #2563eb;
+    --button-hover-bg: #1d4ed8;
   }
 }
 
@@ -18,4 +28,49 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Optional: style the card box for 3D effect globally */
+.card {
+  background: var(--card-bg);
+  border-radius: 2rem;
+  box-shadow: 0 10px 25px var(--card-shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px var(--card-shadow);
+}
+
+.input {
+  background: var(--input-bg);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  border-color: #3b82f6;
+}
+
+.button {
+  background: var(--button-bg);
+  color: white;
+  border-radius: 1rem;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s, background 0.2s;
+}
+
+.button:hover {
+  background: var(--button-hover-bg);
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(1px);
 }
