@@ -46,7 +46,7 @@ export default function Page() {
   }
 
   return (
-    <main className="p-10 max-w-xl mx-auto">
+    <main className="p-12 max-w-xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">Next.js + Supabase CRUD</h1>
 
       <div className="flex gap-3 mb-6 justify-center">
