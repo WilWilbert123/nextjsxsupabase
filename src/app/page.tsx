@@ -46,51 +46,42 @@ export default function Page() {
   }
 
   return (
-    <main className="p-12 max-w-xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Next.js + Supabase CRUD</h1>
+   <div className="flex items-center justify-center min-h-screen bg-[var(--background)]">
+  {/* Centered card */}
+  <div className="card w-96 h-[500px] flex flex-col p-6  ">
+    <h1 className="text-xl font-bold mb-4 text-center">Next.js + Supabase</h1>
 
-      <div className="flex gap-3 mb-6 justify-center">
-        <input
-          className="input "
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter item"
-        />
-        <button
-          className="button"
-          onClick={handleSave}
-        >
-          {editId ? 'Update' : 'Add'}
-        </button>
-      </div>
+    {/* Input Section */}
+    <div className="flex gap-2 mb-4">
+      <input
+        className="input flex-1"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Enter item"
+      />
+      <button className="button" onClick={handleSave}>
+        {editId ? 'Update' : 'Add'}
+      </button>
+    </div>
 
+    {/* List Section */}
+    <ul className="flex-1 overflow-y-auto space-y-3">
+      {items.map((item) => (
+        <li key={item.id} className="flex-1 card p-3 flex justify-between items-center">
+          <span className="text-gray-700 font-medium">{item.title}</span>
+          <div className="flex gap-2">
+            <button onClick={() => handleEdit(item)} className="button px-3 py-1 text-sm bg-blue-500 hover:bg-blue-600">
+              Edit
+            </button>
+            <button onClick={() => handleDelete(item.id)} className="button px-3 py-1 text-sm bg-red-500 hover:bg-red-600">
+              Delete
+            </button>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
 
-      <ul className="space-y-4   flex-col items-center">
-        {items.map((item) => (
-          <li
-            key={item.id}
-            className="card  flex justify-between items-center p-4 bg-gray-50 shadow-md hover:shadow-lg transition-shadow w-64"
-          >
-            <span className="text-gray-700 font-medium">{item.title}</span>
-            <div className="flex gap-2">
-              <button
-                onClick={() => handleEdit(item)}
-                className="button px-4 py-1 text-sm bg-blue-500 hover:bg-blue-600"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => handleDelete(item.id)}
-                className="button px-4 py-1 text-sm bg-red-500 hover:bg-red-600"
-              >
-                Delete
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
-
-
-    </main>
   )
 }
