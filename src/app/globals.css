@@ -2,15 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --card-bg: #f9f9f9;
-  --card-shadow: rgba(0, 0, 0, 0.15);
-  --input-bg: #ffffff;
-  --button-bg: #3b82f6;
-  --button-hover-bg: #2563eb;
-}
+ 
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -19,7 +11,7 @@
     --card-bg: #1f1b2e;
     --card-shadow: rgba(0, 0, 0, 0.5);
     --input-bg: #2c2544;
-    --button-bg: #2563eb;
+    --button-bg: #8aa3d7;
     --button-hover-bg: #1d4ed8;
   }
 }
@@ -45,17 +37,19 @@ body {
 
 .input {
   background: var(--input-bg);
+  color: var(--foreground);   
   border-radius: 1rem;
   padding: 0.75rem 1rem;
   border: 1px solid #ccc;
   outline: none;
   transition: box-shadow 0.2s, border-color 0.2s;
+  color:#ffffff
 }
 
-.input:focus {
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-  border-color: #3b82f6;
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
+
 
 .button {
   background: var(--button-bg);
@@ -73,4 +67,13 @@ body {
 
 .button:active {
   transform: translateY(1px);
+}
+/* Scrollbar polish */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
 }
